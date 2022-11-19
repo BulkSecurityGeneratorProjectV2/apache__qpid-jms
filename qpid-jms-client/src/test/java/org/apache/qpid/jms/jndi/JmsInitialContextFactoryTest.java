@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Hashtable;
 import java.util.Properties;
 
@@ -390,7 +391,7 @@ public class JmsInitialContextFactoryTest extends QpidJmsTestCase {
         Properties properties = new Properties();
         properties.put("connectionfactory." + myFactory, myURI);
 
-        File f = File.createTempFile(getTestName(), ".properties");
+        File f = Files.createTempFile(getTestName(), ".properties").toFile();
         try {
             FileOutputStream fos = new FileOutputStream(f);
             try {
@@ -430,7 +431,7 @@ public class JmsInitialContextFactoryTest extends QpidJmsTestCase {
         Properties properties = new Properties();
         properties.put("connectionfactory." + myFactory, myURI);
 
-        File f = File.createTempFile(getTestName(), ".properties");
+        File f = Files.createTempFile(getTestName(), ".properties").toFile();
         try {
             FileOutputStream fos = new FileOutputStream(f);
             try {
